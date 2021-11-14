@@ -1,0 +1,16 @@
+name = "Hugo Tailwind CV"
+license = "MIT"
+licenselink = "https://github.com/mauricius/hugo-tailwind-cv/blob/master/LICENSE"
+description = "Responsive Tailwind Resume/CV Theme for Awesome Developers"
+homepage = "https://github.com/mauricius/hugo-tailwind-cv"
+tags = ["cv", "resume", "tailwindcss", "minimal", "light", "dark", "multilingual"]
+features = ["responsive", "colour schemes", "dark"]
+min_version = "0.41.0"
+
+[author]
+  name = "Maurizio Bonani"
+  homepage = "https://github.com/mauricius/hugo-tailwind-cv"
+
+[original]
+  name = "Pavel Kanyshev"
+  homepage = "//github.com/aerohub/hugo-orbit-theme"

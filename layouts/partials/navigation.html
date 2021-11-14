@@ -1,0 +1,30 @@
+<nav class="sticky top-0 print:hidden bg-gray-300 dark:bg-gray-900 shadow shadow-gray-400 dark:shadow-gray-600 transition-all duration-300 z-10">
+  <div class="max-w-7xl mx-auto px-6 xl:px-0">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center space-x-10">
+        {{ if .Site.Params.logo.image }}
+          <div class="flex-shrink-0 logo">
+            <a href="{{ .Site.BaseURL }}">
+              <img src="{{ .Site.BaseURL }}{{ .Site.Params.logo.image }}" class="h-8" alt="{{ .Site.Params.logo.title }}" title="{{ .Site.Params.logo.title }}" />
+            </a>
+          </div>
+        {{ end }}
+        <div class="flex items-baseline space-x-4">
+          {{ if .IsTranslated }}
+            {{ $default_lang := .Site.Language.Lang }}
+            {{ range $.Site.Home.AllTranslations }}
+              {{ if eq (lower .Language.LanguageName) $default_lang }}
+                <a href="{{ .RelPermalink }}" class="bg-gray-900 dark:bg-gray-300 text-white dark:text-black px-3 py-2 rounded-md text-sm font-medium">{{ .Language.LanguageName }}</a>
+              {{ else }}
+                <a href="{{ .RelPermalink }}" class="text-gray-900 dark:text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{{ .Language.LanguageName }}</a>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      <div class="flex items-center">
+        {{ partial "dark-theme-toggle" . }}
+      </div>
+    </div>
+  </div>
+</nav>

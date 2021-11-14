@@ -1,0 +1,15 @@
+<footer class="print:hidden">
+  <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+  <p class="text-sm text-center text-gray-500 dark:text-gray-400">Based on Hugo port by <a href="https://github.com/aerohub" target="_blank" rel="noopener noreferrer" class="hover:text-{{ $.Site.Params.style.color }}-500 transition">Pavel Kanyshev</a> {{ partial "icons/heart" (dict "Class" "inline h-6 w-6 text-red-500") }} Inspired by <a href="https://github.com/xriley/Orbit-Theme" target="_blank" rel="noopener noreferrer" class="hover:text-{{ $.Site.Params.style.color }}-500 transition">Orbit Theme</a> by <a href="https://themes.3rdwavemedia.com" target="_blank" rel="noopener noreferrer" class="hover:text-{{ $.Site.Params.style.color }}-500 transition">Xiaoying Riley</a>
+  </p>
+  <div class="max-w-screen-xl my-8 mx-auto space-y-8 overflow-hidden">
+    <div class="flex justify-center space-x-6">
+      {{ range .Site.Params.contact.list }}
+        <a href="{{ .url }}" class="text-gray-400 hover:text-{{ $.Site.Params.style.color }}-500 transition" title="{{ .type }}" target="_blank" rel="noopener">
+          <span class="sr-only">{{ .type }}</span>
+          {{ partial (printf "icons/%s" .icon) (dict "Class" "inline h-6 w-6") }}
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</footer>

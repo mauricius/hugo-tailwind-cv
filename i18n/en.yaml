@@ -1,0 +1,8 @@
+- id: contacts
+  translation: Contacts
+- id: description
+  translation: Description
+- id: tasks
+  translation: Tasks
+- id: tools
+  translation: Languages & Tools

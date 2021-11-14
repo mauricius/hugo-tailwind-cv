@@ -1,0 +1,7 @@
+<a 
+  @click="window.scroll(0,0)" 
+  class="print:hidden fixed right-4 bottom-4 border rounded-full border-2 cursor-pointer bg-gray-100 text-{{ $.Site.Params.style.color }}-300 hover:border-{{ $.Site.Params.style.color }}-300 dark:bg-gray-800 dark:border-gray-600 dark:hover:border-{{ $.Site.Params.style.color }}-300 transition-all duration-300 leading-none p-2" :class="isVisible ? 'opacity-100' : 'opacity-0'" title="Scroll back to top"
+>
+  <span class="sr-only">To Top</span>
+  {{ partial "icons/arrow-up" (dict "Class" (printf "inline h-6 w-6 text-%s-500 dark:text-%s-300" $.Site.Params.style.color $.Site.Params.style.color)) }}
+</a> 

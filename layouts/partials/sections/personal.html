@@ -1,0 +1,12 @@
+<div class="font-light">
+  {{ range .Site.Params.personal.list }}
+    <div class="flex items-center print:items-start my-3 space-x-2 print:break-all print:text-sm">
+      {{ partial (printf "icons/%s" .icon) (dict "Class" "inline h-6 w-6 print:h-4 print:w-4") }}
+      {{ if .url }}
+        <a href="{{ .url }}" class="hover:text-gray-900" title="{{ .title }}">{{ .title }}</a>
+      {{ else }}
+        <span>{{ .title }}</span>
+      {{ end }}
+    </div>
+  {{ end }}    
+</div>

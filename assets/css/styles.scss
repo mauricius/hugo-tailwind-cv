@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.after\:hash:after {
+  content: "#";
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: theme('colors.indigo.300');
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.indigo.600');
+}
+
+.logo {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+
+.logo:hover,
+.logo:focus {
+  transform: rotateY(180deg);
+}

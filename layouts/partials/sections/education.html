@@ -1,0 +1,23 @@
+{{ $data := (.Scratch.Get "content").Education }}
+{{ with $data }}
+  <section class="text-base leading-7">
+    {{ partial "components/title" (dict "Title" .Title "Accent" $.Site.Params.style.color) }}
+
+    {{ range $data.Items }}
+      <div class="space-y-4 mb-8">
+        <div class="flex-col lg:flex-row print:flex-row flex-grow flex justify-between">
+          <div>
+            <h3 class="font-bold text-xl dark:text-gray-300">{{ .Name }}</h3>
+            <span class="text-gray-600 dark:text-gray-400 text-sm">{{ .Organisation }}</span>
+          </div>
+          <div class="flex-shrink-0">
+            <span class="text-sm text-gray-600 dark:text-gray-400">{{ .StartDate }} - {{ .EndDate }}</span>
+          </div>
+        </div>
+        <div class="w-full dark:text-gray-400">
+          {{ .Description | markdownify }}
+        </div>
+      </div>
+    {{ end }}
+  </section>
+{{ end }}

@@ -1,0 +1,29 @@
+{
+  "name": "hugo-tailwind-cv",
+  "version": "0.1.0",
+  "description": "Responsive Tailwind Resume/CV Theme for Awesome Developers",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cv",
+    "resume",
+    "tailwindcss",
+    "minimal",
+    "light",
+    "dark",
+    "multilingual"
+  ],
+  "author": "Maurizio Bonani",
+  "license": "MIT",
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "tailwindcss": "^3.3.3"
+  }
+}

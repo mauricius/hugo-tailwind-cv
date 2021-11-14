@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+{{ $content := (index .Site.Data .Site.Language.Lang) }}
+{{ $content := (index $content "content") }}
+{{ .Scratch.Set "content" $content }}
+
+<body class="bg-gray-100 dark:bg-gray-700" x-data="scrolling" x-on:scroll.window="scroll()">
+  {{ partial "navigation" . }}
+
+  <div class="container mx-auto max-w-screen-xl space-y-8">
+    <main id="wrapper" class="flex flex-col print:flex-row {{ if $.Site.Params.sidebar.inverse }}sm:flex-row-reverse{{ else }}sm:flex-row{{ end }} xl:my-12 shadow-2xl print:shadow-none dark:bg-gray-800">
+      {{ partial "sidebar.html" . }}
+      
+      <div class="w-full print:w-4/5 lg:p-8 p-6 print:px-4 print:py-0">
+        {{ if .Site.Params.summary.enable }}
+          {{ partial "sections/summary.html" . }}
+          <hr class="my-8 dark:border-gray-600">
+        {{ end }}
+
+        {{ if .Site.Params.experiences.enable }}
+          {{ partial "sections/experiences.html" . }}
+          <hr class="my-8 dark:border-gray-600">
+        {{ end }}
+
+        {{ if .Site.Params.education.enable }}
+          {{ partial "sections/education.html" . }}
+          <hr class="my-8 dark:border-gray-600">
+        {{ end }}
+
+        {{ if .Site.Params.projects.enable }}
+          {{ partial "sections/projects.html" . }}
+          <hr class="my-8 dark:border-gray-600">
+        {{ end }}
+
+        {{ if .Site.Params.skills.enable }}
+          {{ partial "sections/skills.html" . }}
+        {{ end }}
+      </div>
+    </main>
+
+    {{ partial "footer.html" . }}
+
+    {{ partial "to-top.html" . }}
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script>
+      document.addEventListener('alpine:init', () => {
+        Alpine.data('darkmode', () => ({
+          enabled: document.documentElement.classList.contains('dark'),
+
+          toggle() {
+            this.enabled = ! this.enabled
+
+            if (this.enabled) {
+              document.documentElement.classList.add('dark')
+              localStorage.theme = 'dark'
+            } else {
+              document.documentElement.classList.remove('dark')
+              localStorage.theme = 'light'
+            }
+          }
+        }));
+
+        Alpine.data('scrolling', () => ({
+          lastPos: window.scrollY + 0,
+          
+          scroll() {
+            this.lastPos = window.scrollY;
+          },
+
+          get isVisible() {
+            return this.lastPos > 500;
+          }
+        }));
+      });  
+    </script>
+  </body>
+</html>

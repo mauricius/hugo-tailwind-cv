@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-700" x-data="scrolling" x-on:scroll.window="scroll()">
+  {{ partial "navigation" . }}
+
+  <div class="container mx-auto max-w-screen-xl space-y-8">
+    <main id="wrapper" class="flex flex-col sm:flex-row{{ if $.Site.Params.sidebar.inverse }}-reverse{{ end }} xl:my-12 shadow-2xl print:shadow-none dark:bg-gray-800">
+      {{ .Content }}
+    </main>
+
+    {{ partial "footer.html" . }}
+
+    {{ partial "to-top.html" . }}
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script>
+      document.addEventListener('alpine:init', () => {
+        Alpine.data('darkmode', () => ({
+          enabled: document.documentElement.classList.contains('dark'),
+
+          toggle() {
+            this.enabled = ! this.enabled
+
+            if (this.enabled) {
+              document.documentElement.classList.add('dark')
+              localStorage.theme = 'dark'
+            } else {
+              document.documentElement.classList.remove('dark')
+              localStorage.theme = 'light'
+            }
+          }
+        }));
+      });
+    </script>
+  </body>
+</html>

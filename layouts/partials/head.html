@@ -1,0 +1,38 @@
+<title>{{ .Site.Params.title }}</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="description" content="{{ .Site.Params.description }}" />
+<meta name="author" content="{{ .Site.Author.name }}" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.BaseURL }}assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.BaseURL }}assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.BaseURL }}assets/favicon-16x16.png">
+<link rel="manifest" href="{{ .Site.BaseURL }}assets/site.webmanifest">
+<link rel="mask-icon" href="{{ .Site.BaseURL }}assets/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+{{ template "_internal/schema.html" . }}
+{{ template "_internal/opengraph.html" . }}
+{{ template "_internal/twitter_cards.html" . }}
+<meta name="twitter:creator" content="{{ .Site.Author.twitter }}">
+<meta name="twitter:url" content="{{ .Permalink }}">
+
+{{ if .IsTranslated }}
+  {{ range .Translations }}
+    <link rel="alternate" href="{{ .Permalink }}" hreflang="{{ .Lang }}">
+  {{ end }}
+{{ end }}
+
+<script>
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+</script>
+
+{{ partialCached "css.html" . }}

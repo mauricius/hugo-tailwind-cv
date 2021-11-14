@@ -1,0 +1,7 @@
+{{ $data := (.Scratch.Get "content").Summary }}
+{{ with $data }}
+  <section class="text-base leading-7">
+    {{ partial "components/title" (dict "Title" .Title "Accent" $.Site.Params.style.color) }}
+    <div class="dark:text-gray-400 text-justify">{{ .Site.Params.accent }}{{ .Description | markdownify }}</div>
+  </section>
+{{ end }}

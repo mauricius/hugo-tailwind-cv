@@ -1,0 +1,12 @@
+<div class="bg-{{ $.Site.Params.style.color }}-600">
+  <img
+    src="{{ .Site.BaseURL }}{{ .Site.Params.profile.image }}"
+    alt="{{ .Site.Params.profile.name }}"
+    title="{{ .Site.Params.profile.name }}"
+    class="mx-auto mb-2"
+  />
+  <div class="p-8 print:p-0">
+    <h1 class="text-center text-3xl print:text-xl font-semibold mb-2 text-gray-200 print:text-black">{{ .Site.Params.profile.name }}</h1>
+    <h2 class="text-center text-xl print:text-base font-light text-gray-200 print:text-black">{{ .Site.Params.profile.tagline }}</h2>
+  </div>
+</div>

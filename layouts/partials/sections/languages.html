@@ -1,0 +1,11 @@
+{{ $data := (.Scratch.Get "content").Languages }}
+{{ with $data }}
+  <div class="font-light">
+    <h2 class="text-xl font-semibold mb-4">{{ .Title }}</h2>
+    <ul class="print:text-sm">
+      {{ range .Items }}
+        <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

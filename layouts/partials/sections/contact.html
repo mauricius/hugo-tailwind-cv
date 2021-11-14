@@ -1,0 +1,12 @@
+<div class="font-light">
+  <h2 class="text-xl font-semibold mb-4">{{ i18n "contacts" }}</h2>
+  {{ range .Site.Params.contact.list }}
+    <div class="flex items-center print:items-start my-3 space-x-2 print:break-all">
+      <div>
+        {{ partial (printf "icons/%s" .icon) (dict "Class" "inline h-6 w-6 print:h-4 print:w-4") }}
+      </div>
+      <span class="sr-only">{{ .type }}</span>
+      <a href="{{ .url }}" class="print:text-sm hover:underline" target="_blank" rel="noopener" title="{{ .title }}">{{ .title }}</a>
+    </div>
+  {{ end }}    
+</div>
